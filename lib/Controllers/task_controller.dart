@@ -61,7 +61,7 @@ class TaskController extends GetxController {
       }
 
       prefs.setString("task", json.encode(taskModelLo));
-
+getLocalApiData();
       sizeFieldController.clear();
     });
 

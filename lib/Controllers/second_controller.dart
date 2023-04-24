@@ -8,7 +8,12 @@ class SecondController extends GetxController {
   RxString prevtext = "".obs;
 
   @override
-  Future<void> onInit() async {
+  void onInit() async {
+    super.onInit();
+    timerFlipLogic();
+  }
+
+  timerFlipLogic() {
     Timer.periodic(const Duration(seconds: 2), (Timer t) {
       toggler.value = !toggler.value;
       if (initText.value == "A") {
@@ -25,7 +30,5 @@ class SecondController extends GetxController {
         initText.value = "B";
       }
     });
-
-    super.onInit();
   }
 }

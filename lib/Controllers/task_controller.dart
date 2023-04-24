@@ -20,15 +20,22 @@ class TaskController extends GetxController {
   var sizeFieldController = TextEditingController();
 
   @override
-  Future<void> onInit() async {
+  void onInit() {
     super.onInit();
+    networkCheck();
+    getLocalApiData();
+  }
+
+  networkCheck() {
     Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
       if (result == ConnectivityResult.none) {
         Get.snackbar("Network", "Network Connection LOST",
             snackPosition: SnackPosition.BOTTOM);
       }
     });
+  }
 
+  getLocalApiData() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     var localStore = json.decode(prefs.get('task').toString());
 

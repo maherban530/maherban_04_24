@@ -36,7 +36,8 @@ class HomeView extends StatelessWidget {
               },
               borderRadius: BorderRadius.circular(10),
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 40),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 14, horizontal: 40),
                 decoration: BoxDecoration(
                   color: Colors.indigo.shade100,
                   borderRadius: BorderRadius.circular(10),
@@ -59,24 +60,29 @@ class HomeView extends StatelessWidget {
                           (i) => SizedBox(
                             width: MediaQuery.of(context).size.width / 6,
                             height: MediaQuery.of(context).size.width / 6,
-                            child: taskData[i]['image_url'] == null ? const Icon(Icons.image) :
-                             Image.network(
-                              taskData[i]['image_url'].toString(),
-                              fit: BoxFit.cover,
-                              loadingBuilder: (BuildContext context, Widget child,
-                                  ImageChunkEvent? loadingProgress) {
-                                if (loadingProgress == null) return child;
-                                return Center(
-                                  child: CircularProgressIndicator(
-                                    value: loadingProgress.expectedTotalBytes !=
-                                            null
-                                        ? loadingProgress.cumulativeBytesLoaded /
-                                            loadingProgress.expectedTotalBytes!
-                                        : null,
+                            child: taskData[i]['image_url'] == null
+                                ? const Icon(Icons.image)
+                                : Image.network(
+                                    taskData[i]['image_url'].toString(),
+                                    fit: BoxFit.cover,
+                                    loadingBuilder: (BuildContext context,
+                                        Widget child,
+                                        ImageChunkEvent? loadingProgress) {
+                                      if (loadingProgress == null) return child;
+                                      return Center(
+                                        child: CircularProgressIndicator(
+                                          value: loadingProgress
+                                                      .expectedTotalBytes !=
+                                                  null
+                                              ? loadingProgress
+                                                      .cumulativeBytesLoaded /
+                                                  loadingProgress
+                                                      .expectedTotalBytes!
+                                              : null,
+                                        ),
+                                      );
+                                    },
                                   ),
-                                );
-                              },
-                            ),
                           ),
                         ),
                       ],
@@ -111,7 +117,8 @@ class HomeView extends StatelessWidget {
               },
               borderRadius: BorderRadius.circular(10),
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 40),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 14, horizontal: 40),
                 decoration: BoxDecoration(
                   color: Colors.indigo.shade100,
                   borderRadius: BorderRadius.circular(10),
@@ -119,6 +126,7 @@ class HomeView extends StatelessWidget {
                 child: const Text("go to screen 2"),
               ),
             ),
+            SizedBox(height: MediaQuery.of(context).size.width / 10),
           ],
         ),
       ),

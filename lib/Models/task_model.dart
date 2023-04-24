@@ -40,11 +40,3 @@ class Data {
   }
 }
 
-//////////////////
-
-class FilterData {
-  int? index;
-  List<Data>? data;
-
-  FilterData({this.index, this.data});
-}
